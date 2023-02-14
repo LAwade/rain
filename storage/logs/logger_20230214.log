@@ -1,0 +1,182 @@
+________________________________________________________________________________________
+
+[ 14/02/2023 00:55:34 ][ logger_20230214 ][ DEBUG ]
+
+> Array
+(
+    [0] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Banks
+            [path] => admin/bank
+            [menu_heading] => admin
+        )
+
+    [1] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Menus
+            [path] => admin/menu
+            [menu_heading] => admin
+        )
+
+    [2] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Pages
+            [path] => admin/page
+            [menu_heading] => admin
+        )
+
+    [3] => stdClass Object
+        (
+            [name] => Business
+            [position] => 2
+            [icon] => fas fa-shopping-cart
+            [name_page] => Categorias
+            [path] => category/create
+            [menu_heading] => category
+        )
+
+    [4] => stdClass Object
+        (
+            [name] => Business
+            [position] => 2
+            [icon] => fas fa-shopping-cart
+            [name_page] => Produtos
+            [path] => product/create
+            [menu_heading] => product
+        )
+
+    [5] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Comprar
+            [path] => store/shop
+            [menu_heading] => store
+        )
+
+    [6] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Faturas
+            [path] => invoice/index
+            [menu_heading] => invoice
+        )
+
+    [7] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Pedidos
+            [path] => order/show
+            [menu_heading] => order
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 14/02/2023 00:56:08 ][ logger_20230214 ][ DEBUG ]
+
+> Array
+(
+    [0] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Banks
+            [path] => admin/bank
+            [menu_heading] => admin
+        )
+
+    [1] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Menus
+            [path] => admin/menu
+            [menu_heading] => admin
+        )
+
+    [2] => stdClass Object
+        (
+            [name] => Administrator
+            [position] => 1
+            [icon] => fas fa-cogs
+            [name_page] => Pages
+            [path] => admin/page
+            [menu_heading] => admin
+        )
+
+    [3] => stdClass Object
+        (
+            [name] => Business
+            [position] => 2
+            [icon] => fas fa-shopping-cart
+            [name_page] => Categorias
+            [path] => category/create
+            [menu_heading] => category
+        )
+
+    [4] => stdClass Object
+        (
+            [name] => Business
+            [position] => 2
+            [icon] => fas fa-shopping-cart
+            [name_page] => Produtos
+            [path] => product/create
+            [menu_heading] => product
+        )
+
+    [5] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Comprar
+            [path] => store/shop
+            [menu_heading] => store
+        )
+
+    [6] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Faturas
+            [path] => invoice/index
+            [menu_heading] => invoice
+        )
+
+    [7] => stdClass Object
+        (
+            [name] => Loja
+            [position] => 3
+            [icon] => fas fa-store
+            [name_page] => Pedidos
+            [path] => order/show
+            [menu_heading] => order
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+

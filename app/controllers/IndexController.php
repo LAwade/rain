@@ -2,27 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\User;
+use app\models\Client;
 use app\core\Controller;
 use app\core\SimplesMail;
+use app\models\Menu;
+use app\models\Permission;
 use app\models\PermissionUser;
-use app\repository\MenuRepository;
-use app\repository\PermissionRepository;
-use app\repository\PermissionUserRepository;
-use app\repository\UserRepository;
 
 class IndexController extends Controller {
 
-    private $user;
-    private $simplesMail;
-    private $menu;
-    private $permission;
-
     function __construct() {
-        $this->user = new UserRepository();
-        $this->menu = new MenuRepository();
-        $this->permission = new PermissionRepository();
-        $this->permission_user = new PermissionUserRepository();
         $this->simplesMail = new SimplesMail(CONF_MAIL_USER, CONF_MAIL_PASSWD);
     }
 
@@ -30,13 +19,19 @@ class IndexController extends Controller {
         $data = is_postback();
 
         if ($data['password'] && $data['email']) {
-            $user = $this->user->findByMail($data['email']);
-            if (!$user->active && $user->email) {
+            $client = new Client();
+            $menu = new Menu();
+            $permission = new Permission;
+
+            $client = $client->findByMail($data['email']);
+            if (!$client->active && $client->email) {
                 $this->message()->info("Perform account authentication, check your e-mail to validate!");
             } else {
-                if (password_verify($data['password'], $user->password)) {
-                    session()->set(CONF_SESSION_LOGIN, $user);
-                    session()->set(CONF_SESSION_MENU, $this->menu->findStruture($this->permission->findPermissionByUser($user->id)->value));
+                if (password_verify($data['password'], $client->password)) {
+                    session()->set(CONF_SESSION_LOGIN, $client);
+                    session()->set(CONF_SESSION_CART, null);
+                    session()->set(CONF_SESSION_MENU, $menu->findStruture($permission->findPermissionByUser($client->id)->value));
+                    logger()->debug(print_r($menu->findStruture($permission->findPermissionByUser($client->id)->value), true));
                     $this->message()->success("Login success!");
                 } else {
                     $this->message()->warning("E-mail or Password invalid!");
@@ -54,33 +49,31 @@ class IndexController extends Controller {
     public function createaccount() {
         $data = is_postback();
         if ($data) {
-
+            $client = new Client();
             if($data['password'] != $data['repassword']){
                 $this->message()->danger("Password do not match!")->flash();
                 return $this->view('createaccount');
             }
 
-            $user = new User(
-                $data['name'],
-                $data['mail'], 
-                $data['password'],
-                1
-            );
+            $client->name = $data['name'];
+            $client->email = $data['mail'];
+            $client->password = $data['password'];
+            $client->active = 1;
 
-            if ($id_user = $this->user->create($user)) {
-                $permission_user = new PermissionUser(
-                    CONF_DEFAULT_PERMISSION,
-                    $id_user
-                );
+            if ($id_user = $client->save($client)) {
+                $permission_user = new PermissionUser();
 
-                if($this->permission_user->create($permission_user)){
+                $permission_user->id_permission = CONF_DEFAULT_PERMISSION;
+                $permission_user->id_client = $id_user; 
+
+                if($permission_user->save($permission_user)){
                     $this->message()->info("Welcome to " . CONF_NAME_SYSTEM . "!")->flash();
                 } else {
-                    $this->user->delete($id_user);
+                    $client->delete($id_user);
                     $this->message()->warning($permission_user->callback())->flash();
                 }
             } else {
-                $this->message()->warning($user->callback())->flash();
+                $this->message()->warning($client->callback())->flash();
             }
         }
         $this->view('createaccount');

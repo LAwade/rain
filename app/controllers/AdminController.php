@@ -3,30 +3,17 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\models\Bank;
 use app\models\Menu;
 use app\models\Page;
 use app\models\Permission;
-use app\repository\MenuRepository;
-use app\repository\PageRepository;
-use app\repository\PermissionRepository;
-use app\repository\UserRepository;
 
 class AdminController extends Controller {
-
-    private $user;
-    private $page;
-    private $menu;
-    private $permission;
 
     function __construct() {
         if (!session()->data(CONF_SESSION_LOGIN)) {
             redirect('login');
         }
-        $this->user = new UserRepository();
-        $this->menu = new MenuRepository();
-        $this->page = new PageRepository();
-        $this->permission = new PermissionRepository();
-
     }
 
     public function index() {
@@ -35,33 +22,33 @@ class AdminController extends Controller {
     
     public function menu($action = null, $id = null) {
         $input = is_postback();
+        $menu = new Menu();
 
         if (isset($input['exec'])) {
-            $menu = new Menu(
-                $input['name_menu'],
-                $input['icon_menu'],
-                $input['position_menu'],
-                $input['active_menu'] ?? 0
-            );
+            $menu->name = $input['name_menu'];
+            $menu->icon = $input['icon_menu'];
+            $menu->position = $input['position_menu'];
+            $menu->active = $input['active_menu'] ?? 0;
 
-            $res = $this->menu->create($menu, $id);
-            if ($res && $action != 'delete') {
-                $this->message()->success($menu->callback())->flash();
+            $res = $menu->save($id);
+            $callback = $menu->callback();
+            if ($res && !$callback) {
+                $this->message()->success(config('messages')['ACTION_SUCCESS'])->flash();
             } else {
-                $this->message()->danger($menu->callback())->flash();
+                $this->message()->danger($callback)->flash();
             }
-        }
-
-        if ($action == 'delete' && $this->menu->delete($id)) {
-            $this->message()->danger("The item was successfully removed!")->flash();
         }
 
         if ($action == 'edit' && $id && !$input) {
             unset($action);
-            $info['menu'] = $this->menu->find($id);
+            $info['menu'] = $menu->find($id);
         }
 
-        $info['all'] = $this->menu->findAll();
+        if ($action == 'delete' && $menu->delete($id)) {
+            $this->message()->danger(config('messages')['ACTION_DELETED'])->flash();
+        }
+
+        $info['all'] = $menu->findAll();
 
         $this->load('admin/menu', $action);
         $this->view('template', $info);
@@ -70,38 +57,79 @@ class AdminController extends Controller {
     public function page($action = null, $id = null) {
         $input = is_postback();
 
-        if ($input) {
-            $page = new Page(
-                $input['name_page'],
-                $input['path_page'],
-                $input['id_menu'],
-                $input['access_id_permission'],
-                $input['active_page']
-            );
+        $menu = new Menu();
+        $permission = new Permission;
+        $page = new Page();
 
-            $res = $this->page->create($page, $id);
-            if($res){
-                $this->message()->success($page->callback())->flash();
+        if ($input) {
+            $page->name = $input['name_page'];
+            $page->path = $input['path_page'];
+            $page->id_menu = $input['id_menu'];
+            $page->access_id_permission = $input['access_id_permission'];
+            $page->active = $input['active_page'] ?? 0;
+            $res = $page->save($id);
+
+            $callback = $page->callback();
+            if ($res && !$page->callback()) {
+                $this->message()->success(config('messages')['ACTION_SUCCESS'])->flash();
             } else {
-                $this->message()->danger($page->callback())->flash();
-            } 
+                $this->message()->danger($callback)->flash();
+            }
         }
 
-        if ($action == 'delete' && $this->page->delete($id)) {
-            $this->message()->danger("The item was successfully removed!")->flash();
+        if ($action == 'delete' && $page->delete($id)) {
+            $this->message()->danger(config('messages')['ACTION_DELETED'])->flash();
         }
 
         if ($action == 'edit' && $id && !$input) {
             unset($action);
-            $info['pages'] = $this->page->find($id);
+            $info['pages'] = $page->find($id);
         }
 
-        $info['permission'] = $this->permission->findAll();
-        $info['menu'] = $this->menu->findAll();
-        $info['all'] = $this->page->findAllConfig();
+        $info['permission'] = $permission->findAll();
+        $info['menu'] = $menu->findAll();
+        $info['all'] = $page->findAllConfig();
 
         $this->load('admin/page', $action);
         $this->view('template', $info);
     }
     
+    public function bank($action = null, $id = null) {
+        $input = is_postback();
+
+        $bank = new Bank();
+
+        if ($input) {
+            $bank->name = $input['name'];
+            $bank->description = $input['description'];
+            $bank->url = $input['url'];
+            $bank->url_notification = $input['url_notification'];
+            $bank->key = $input['key'] ?? 0;
+            $bank->extra_code = $input['extra_code'] ?? 0;
+            $bank->active = $input['active'] ?? 0;
+            $res = $bank->save($id);
+
+            $callback = $bank->callback();
+            if ($res && !$bank->callback()) {
+                $this->message()->success(config('messages')['ACTION_SUCCESS'])->flash();
+            } else {
+                $this->message()->danger($callback)->flash();
+            }
+        }
+
+        if ($action == 'delete' && $bank->delete($id)) {
+            $this->message()->danger(config('messages')['ACTION_DELETED'])->flash();
+        }
+
+        if ($action == 'edit' && $id && !$input) {
+            unset($action);
+            $info['banks'] = $bank->find($id);
+        }
+
+        $info['all'] = $bank->findAll();
+
+        $this->load('admin/bank', $action);
+        $this->view('template', $info);
+    }
+
 }

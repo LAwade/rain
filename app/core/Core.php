@@ -15,7 +15,12 @@ class Core {
 
     public function run() {
         $class = $this->getController();
-        $controller = new $class;
+        if(strpos(strtolower($class), 'api') !== false){
+            $controller = new $class($this->getParam());
+        } else {
+            $controller = new $class;
+        }
+        
         
         call_user_func_array(array($controller, $this->getMethod()), $this->getParam());
     }

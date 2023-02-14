@@ -4,41 +4,56 @@ namespace app\models;
 
 use Exception;
 use app\core\Model;
-use app\interface\IModel;
+use app\shared\FieldsValidator;
 
-class PermissionUser extends Model implements IModel{
+class PermissionUser extends Model {
 
-    final public const TABLE = "permissions_client";
-
-    public function __construct(
-        int $permission,   
-        int $user
-    )
+    public $id_permission, $id_client;
+    
+    public function __construct()
     {
+        $this->table = 'permissions_client';
+    }
+
+    private function verify(){
         try{
-            $this->setPermission($permission);
-            $this->setUser($user);
-            $this->callback("Your action is Success!");
-        } catch(Exception $ex){
-            $this->callback($ex->getMessage());
+            $fields = [
+                'id_permission' => ['value' => $this->id_permission, 'type' => 'int', 'nullable' => false],
+                'id_client' => ['value' => $this->id_client, 'type' => 'int', 'nullable' => false],
+                'active' => ['value' => $this->active, 'type' => 'int', 'nullable' => true]
+            ];
+    
+            $f = new FieldsValidator($fields);
+            return $f->to_array();
+        }catch(Exception $e){
+            $this->callback($e->getMessage());
         }
     }
 
-    function toArray(): array{
-        return filter_data($this);
-    }
-
-    private function setPermission($permission){
-        if (!$permission) {
-            throw new Exception("Please complete field ID permission!");
+    function save(int $id = null)
+    {
+        $data = $this->verify();
+        if(empty($data)){
+            return; 
         }
-        $this->id_permission = $permission;
-    }
-
-    private function setUser($user){
-        if (!$user) {
-            throw new Exception("Please complete field ID user!");
+        
+        if($id){
+            return $this->update($data, ['id' => $id]);
         }
-        $this->id_client = $user;
+        return $this->insert($data);
+    }
+    
+    function delete(int $id){
+        return $this->remove($id);
+    }
+    
+    function find(int $id):? PermissionUser{
+        $query = "SELECT * FROM {$this->table} WHERE id = :id;";
+        return $this->instance($this->read($query, ['id' => $id])->fetch(), $this);
+    }
+    
+    function findAll(){
+        $query = "SELECT * FROM {$this->table} ORDER BY name";
+        return $this->read($query)->fetchAll();
     }
 }

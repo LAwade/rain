@@ -11,3 +11,5 @@
 <script src="<?= CONF_URL_BASE ?>public/dist/assets/demo/chart-area-demo.js"></script>
 <script src="<?= CONF_URL_BASE ?>public/dist/assets/demo/chart-bar-demo.js"></script>
 <script src="<?= CONF_URL_BASE ?>public/dist/assets/demo/datatables-demo.js"></script>
+<script src="<?= CONF_URL_BASE ?>public/js/shop/index.js"></script>
+<script src="<?= CONF_URL_BASE ?>public/js/util/components.js"></script>

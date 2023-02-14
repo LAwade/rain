@@ -4,60 +4,70 @@ namespace app\models;
 
 use Exception;
 use app\core\Model;
-use app\interface\IModel;
+use app\shared\FieldsValidator;
 
-class Menu extends Model implements IModel{
+class Menu extends Model{
 
-    final public const TABLE = "menus";
+    public $name, $icon, $position, $active = 1;
 
-    public function __construct(
-        string $name,   
-        string $icon,
-        int $position,
-        ?int $active 
-    )
+    public function __construct()
     {
+        $this->table = 'menus';
+    }
+
+    private function verify(){
         try{
-            $this->setName($name);
-            $this->setIcon($icon);
-            $this->setPosition($position);
-            $this->setActive($active);
-            $this->callback("Your action is Success!");
-        } catch(Exception $ex){
-            $this->callback($ex->getMessage());
+            $fields = [
+                'name' => ['value' => $this->name, 'type' => 'string', 'min' => 3, 'max' => 50, 'nullable' => false],
+                'icon' => ['value' => $this->icon, 'type' => 'string', 'min' => 3, 'max' => 250, 'nullable' => false],
+                'position' => ['value' => $this->position, 'type' => 'int', 'nullable' => false],
+                'active' => ['value' => $this->active, 'type' => 'int', 'nullable' => true]
+            ];
+    
+            $f = new FieldsValidator($fields);
+            return $f->to_array();
+        }catch(Exception $e){
+            $this->callback($e->getMessage());
         }
     }
 
-    function toArray(): array{
-        return filter_data($this);
+    function save(int $id = null)
+    {
+        $data = $this->verify();
+        if(empty($data)){
+            return; 
+        }
+        
+        if($id){
+            return $this->update($data, ['id' => $id]);
+        }
+        return $this->insert($data);
+    }
+    
+    function delete(int $id){
+        return $this->remove($id);
+    }
+    
+    function find(int $id):? Menu{
+        $query = "SELECT * FROM {$this->table} WHERE id = :id;";
+        return $this->instance($this->read($query, ['id' => $id])->fetch(), $this);
+    }
+    
+    function findAll(){
+        $query = "SELECT * FROM {$this->table} ORDER BY name";
+        return $this->read($query)->fetchAll();
     }
 
-    private function setName($name){
-        if (strlen($name) < 3 || strlen($name) > 50) {
-            throw new Exception("Name must contain 3 to 50 caracteres. Has: " . strlen($name));
-        }
-        $this->name = ucwords($name);
-    }
-
-    private function setIcon($icon){
-        if (strlen($icon) < 3 || strlen($icon) > 250) {
-            throw new Exception("Icon must contain 3 to 250 caracteres. Has: " . strlen($icon));
-        }
-        $this->icon = $icon;
-    }
-
-    private function setPosition($position){
-        if ($position < 0) {
-            throw new Exception("Minimum allowance value must be 0.");
-        }
-        $this->position = $position;
-    }
-
-    private function setActive($active){
-        if(!$active){
-            $this->active = 0;
-        } else {
-            $this->active = 1;
-        }
+    public function findStruture($value) {
+        $query = "SELECT a.name, position, icon, b.name as name_page, path, split_part(path, '/', 1) AS menu_heading 
+                FROM {$this->table} a 
+                INNER JOIN pages b ON b.id_menu = a.id
+                INNER JOIN permissions d ON d.id = b.access_id_permission
+                WHERE value <= :value
+                AND a.active = :active
+                AND b.active = :active
+                AND d.active = :active
+                ORDER BY position, b.name, a.created_at";
+        return $this->read($query, ['value' => $value, 'active' => 1])->fetchAll();
     }
 }

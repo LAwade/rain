@@ -10260,3 +10260,49 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.callout {
+  border-radius: 5px;
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.callout-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  color: white;
+}
+
+.callout-container {
+  padding: 15px;
+  color: white
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: lightgrey;
+}
+
+.callout-success {
+  background-color: var(--success);
+}
+
+.callout-danger {
+  background-color: var(--danger);
+}
+
+.callout-info {
+  background-color: var(--info);
+}

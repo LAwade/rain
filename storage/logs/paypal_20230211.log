@@ -1,0 +1,595 @@
+________________________________________________________________________________________
+
+[ 11/02/2023 23:00:18 ][ paypal_20230211 ][ DEBUG ]
+
+> Array
+(
+    [id] => 5S020839TM7391211
+    [intent] => CAPTURE
+    [status] => COMPLETED
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => default
+                    [amount] => Array
+                        (
+                            [currency_code] => BRL
+                            [value] => 15.00
+                        )
+
+                    [payee] => Array
+                        (
+                            [email_address] => sb-r4q434724432296@business.example.com
+                            [merchant_id] => 82CERLESB5KSU
+                        )
+
+                    [description] => ORDER
+                    [custom_id] => 48
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => John Doe
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 1234 Rua Main
+                                    [admin_area_2] => Rio De Janeiro
+                                    [admin_area_1] => RJ
+                                    [postal_code] => 22021-001
+                                    [country_code] => BR
+                                )
+
+                        )
+
+                    [payments] => Array
+                        (
+                            [captures] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => 8B21676110131453T
+                                            [status] => COMPLETED
+                                            [amount] => Array
+                                                (
+                                                    [currency_code] => BRL
+                                                    [value] => 15.00
+                                                )
+
+                                            [final_capture] => true
+                                            [seller_protection] => Array
+                                                (
+                                                    [status] => ELIGIBLE
+                                                    [dispute_categories] => Array
+                                                        (
+                                                            [0] => ITEM_NOT_RECEIVED
+                                                            [1] => UNAUTHORIZED_TRANSACTION
+                                                        )
+
+                                                )
+
+                                            [create_time] => 2023-02-11T22:00:17Z
+                                            [update_time] => 2023-02-11T22:00:17Z
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-pbn7b24012507@personal.example.com
+            [payer_id] => R7PC2UM7Z52XS
+            [address] => Array
+                (
+                    [country_code] => BR
+                )
+
+        )
+
+    [create_time] => 2023-02-11T22:00:03Z
+    [update_time] => 2023-02-11T22:00:17Z
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://api.sandbox.paypal.com/v2/checkout/orders/5S020839TM7391211
+                    [rel] => self
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 11/02/2023 23:06:40 ][ paypal_20230211 ][ DEBUG ]
+
+> Array
+(
+    [id] => 8PH80451W8321281C
+    [intent] => CAPTURE
+    [status] => COMPLETED
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => default
+                    [amount] => Array
+                        (
+                            [currency_code] => BRL
+                            [value] => 15.00
+                        )
+
+                    [payee] => Array
+                        (
+                            [email_address] => sb-r4q434724432296@business.example.com
+                            [merchant_id] => 82CERLESB5KSU
+                        )
+
+                    [description] => ORDER
+                    [custom_id] => 48
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => John Doe
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 1234 Rua Main
+                                    [admin_area_2] => Rio De Janeiro
+                                    [admin_area_1] => RJ
+                                    [postal_code] => 22021-001
+                                    [country_code] => BR
+                                )
+
+                        )
+
+                    [payments] => Array
+                        (
+                            [captures] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => 7LC86612BM327964U
+                                            [status] => COMPLETED
+                                            [amount] => Array
+                                                (
+                                                    [currency_code] => BRL
+                                                    [value] => 15.00
+                                                )
+
+                                            [final_capture] => true
+                                            [seller_protection] => Array
+                                                (
+                                                    [status] => ELIGIBLE
+                                                    [dispute_categories] => Array
+                                                        (
+                                                            [0] => ITEM_NOT_RECEIVED
+                                                            [1] => UNAUTHORIZED_TRANSACTION
+                                                        )
+
+                                                )
+
+                                            [create_time] => 2023-02-11T22:06:39Z
+                                            [update_time] => 2023-02-11T22:06:39Z
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-pbn7b24012507@personal.example.com
+            [payer_id] => R7PC2UM7Z52XS
+            [address] => Array
+                (
+                    [country_code] => BR
+                )
+
+        )
+
+    [create_time] => 2023-02-11T22:06:15Z
+    [update_time] => 2023-02-11T22:06:39Z
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://api.sandbox.paypal.com/v2/checkout/orders/8PH80451W8321281C
+                    [rel] => self
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 11/02/2023 23:10:33 ][ paypal_20230211 ][ DEBUG ]
+
+> Array
+(
+    [id] => 8E518751LH273453A
+    [intent] => CAPTURE
+    [status] => COMPLETED
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => default
+                    [amount] => Array
+                        (
+                            [currency_code] => BRL
+                            [value] => 15.00
+                        )
+
+                    [payee] => Array
+                        (
+                            [email_address] => sb-r4q434724432296@business.example.com
+                            [merchant_id] => 82CERLESB5KSU
+                        )
+
+                    [description] => ORDER
+                    [custom_id] => 48
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => John Doe
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 1234 Rua Main
+                                    [admin_area_2] => Rio De Janeiro
+                                    [admin_area_1] => RJ
+                                    [postal_code] => 22021-001
+                                    [country_code] => BR
+                                )
+
+                        )
+
+                    [payments] => Array
+                        (
+                            [captures] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => 85D58922BD485354H
+                                            [status] => COMPLETED
+                                            [amount] => Array
+                                                (
+                                                    [currency_code] => BRL
+                                                    [value] => 15.00
+                                                )
+
+                                            [final_capture] => true
+                                            [seller_protection] => Array
+                                                (
+                                                    [status] => ELIGIBLE
+                                                    [dispute_categories] => Array
+                                                        (
+                                                            [0] => ITEM_NOT_RECEIVED
+                                                            [1] => UNAUTHORIZED_TRANSACTION
+                                                        )
+
+                                                )
+
+                                            [create_time] => 2023-02-11T22:10:32Z
+                                            [update_time] => 2023-02-11T22:10:32Z
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-pbn7b24012507@personal.example.com
+            [payer_id] => R7PC2UM7Z52XS
+            [address] => Array
+                (
+                    [country_code] => BR
+                )
+
+        )
+
+    [create_time] => 2023-02-11T22:10:18Z
+    [update_time] => 2023-02-11T22:10:32Z
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://api.sandbox.paypal.com/v2/checkout/orders/8E518751LH273453A
+                    [rel] => self
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 11/02/2023 23:50:29 ][ paypal_20230211 ][ DEBUG ]
+
+> Array
+(
+    [id] => 31S03319N4484241P
+    [intent] => CAPTURE
+    [status] => COMPLETED
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => default
+                    [amount] => Array
+                        (
+                            [currency_code] => BRL
+                            [value] => 30.00
+                        )
+
+                    [payee] => Array
+                        (
+                            [email_address] => sb-r4q434724432296@business.example.com
+                            [merchant_id] => 82CERLESB5KSU
+                        )
+
+                    [description] => ORDER
+                    [custom_id] => 47
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => John Doe
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 1234 Rua Main
+                                    [admin_area_2] => Rio De Janeiro
+                                    [admin_area_1] => RJ
+                                    [postal_code] => 22021-001
+                                    [country_code] => BR
+                                )
+
+                        )
+
+                    [payments] => Array
+                        (
+                            [captures] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => 4UL812770K8666643
+                                            [status] => COMPLETED
+                                            [amount] => Array
+                                                (
+                                                    [currency_code] => BRL
+                                                    [value] => 30.00
+                                                )
+
+                                            [final_capture] => true
+                                            [seller_protection] => Array
+                                                (
+                                                    [status] => ELIGIBLE
+                                                    [dispute_categories] => Array
+                                                        (
+                                                            [0] => ITEM_NOT_RECEIVED
+                                                            [1] => UNAUTHORIZED_TRANSACTION
+                                                        )
+
+                                                )
+
+                                            [create_time] => 2023-02-11T22:50:28Z
+                                            [update_time] => 2023-02-11T22:50:28Z
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-pbn7b24012507@personal.example.com
+            [payer_id] => R7PC2UM7Z52XS
+            [address] => Array
+                (
+                    [country_code] => BR
+                )
+
+        )
+
+    [create_time] => 2023-02-11T22:50:02Z
+    [update_time] => 2023-02-11T22:50:28Z
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://api.sandbox.paypal.com/v2/checkout/orders/31S03319N4484241P
+                    [rel] => self
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 11/02/2023 23:51:38 ][ paypal_20230211 ][ DEBUG ]
+
+> Array
+(
+    [id] => 5TM72179CP6204449
+    [intent] => CAPTURE
+    [status] => COMPLETED
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => default
+                    [amount] => Array
+                        (
+                            [currency_code] => BRL
+                            [value] => 35.00
+                        )
+
+                    [payee] => Array
+                        (
+                            [email_address] => sb-r4q434724432296@business.example.com
+                            [merchant_id] => 82CERLESB5KSU
+                        )
+
+                    [description] => ORDER
+                    [custom_id] => 32
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => John Doe
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 1234 Rua Main
+                                    [admin_area_2] => Rio De Janeiro
+                                    [admin_area_1] => RJ
+                                    [postal_code] => 22021-001
+                                    [country_code] => BR
+                                )
+
+                        )
+
+                    [payments] => Array
+                        (
+                            [captures] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => 1BJ01764818647334
+                                            [status] => COMPLETED
+                                            [amount] => Array
+                                                (
+                                                    [currency_code] => BRL
+                                                    [value] => 35.00
+                                                )
+
+                                            [final_capture] => true
+                                            [seller_protection] => Array
+                                                (
+                                                    [status] => ELIGIBLE
+                                                    [dispute_categories] => Array
+                                                        (
+                                                            [0] => ITEM_NOT_RECEIVED
+                                                            [1] => UNAUTHORIZED_TRANSACTION
+                                                        )
+
+                                                )
+
+                                            [create_time] => 2023-02-11T22:51:38Z
+                                            [update_time] => 2023-02-11T22:51:38Z
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-pbn7b24012507@personal.example.com
+            [payer_id] => R7PC2UM7Z52XS
+            [address] => Array
+                (
+                    [country_code] => BR
+                )
+
+        )
+
+    [create_time] => 2023-02-11T22:51:25Z
+    [update_time] => 2023-02-11T22:51:38Z
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://api.sandbox.paypal.com/v2/checkout/orders/5TM72179CP6204449
+                    [rel] => self
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+

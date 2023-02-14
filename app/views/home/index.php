@@ -1,3 +1,14 @@
+<script>
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+    if (toastTrigger) {
+        toastTrigger.addEventListener('click', () => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+        })
+    }
+</script>
+
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -6,9 +17,9 @@
     <hr>
     <!-- Content Row -->
     <div class="row">
-        <div class="col-lg-12 mb-4">
-            
-        </div>
+
+        <a onclick="toastalert('teste dfdddddddddddd fffffffffffffffffff bbbbbbbbbbbbbbbbbbb nnnnnnnnnnnn mmmmmmm', 'success')" class="btn btn-primary">teste</a>
+
     </div>
 </div>
 <div class="col-lg-12 mb-4">
@@ -18,6 +29,3 @@
         </div>
     </div>
 </div>
-
-
-

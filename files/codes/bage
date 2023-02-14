@@ -1,0 +1,25 @@
+<!-- Dropdown - CART -->
+<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+    <h6 class="dropdown-header">
+        Itens do carrinho
+    </h6>
+
+    <hr>
+    <?php if (session()->data(CONF_SESSION_CART)) { ?>
+        <div class="dropdown-item d-flex align-items-center">
+            <div class="mr-3">
+                <div class="icon-circle bg-default">
+                    <i class="fas fa-check-double"></i>
+                </div>
+            </div>
+            <div>
+                <div class="small text-gray-500">December 7, 2019</div>
+                $290.29 has been deposited into your account!
+            </div>
+        </div>
+        <a class="dropdown-item text-center small text-gray-500" href="#">Ir para Meu Carrinho</a>
+    <?php  } else { ?>
+        <h6>&nbsp;Não tem nada por aqui!</h6>
+        <a class="dropdown-item text-center small text-gray-500" href="/store/shop">Conheça nossa loja</a>
+    <?php } ?>
+</div>

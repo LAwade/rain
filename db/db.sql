@@ -68,23 +68,7 @@ REFERENCES permissions(id) ON DELETE CASCADE;
 --       ##########################       ---
 
 -- PASSWORD HASH ADMIN = "123456"
-INSERT INTO clients (name, email, password, status, updated_at) VALUES ('admin', 'admin@admin.com', '$2y$10$d/jodesdEdVAmbwgrH.GA.O1FaB47mAwCiI1IGmW.q2xcnc5G1foy', 1, 'now');
-
-INSERT INTO roles (name, updated_at) VALUES ('ADMINISTRADOR', 'now');
-INSERT INTO roles (name, updated_at) VALUES ('MODERADOR', 'now');
-INSERT INTO roles (name, updated_at) VALUES ('MEMBRO', 'now');
-
-INSERT INTO roles_client (id_client, id_role, updated_at) VALUES (1,1, 'now');
-
-INSERT INTO priorities (name, color, updated_at) VALUES ('BAIXA', '#26E600', 'now');
-INSERT INTO priorities (name, color, updated_at) VALUES ('MEDIA', '#FFB600', 'now');
-INSERT INTO priorities (name, color, updated_at) VALUES ('ALTA', '#FF0000', 'now');
-INSERT INTO priorities (name, color, updated_at) VALUES ('URGENTE', '#000000', 'now');
-
-INSERT INTO status (name, color, updated_at) VALUES ('ABERTO', '#FFDC00', 'now');
-INSERT INTO status (name, color, updated_at) VALUES ('EM ATENDIMENTO', '#00A2FF', 'now');
-INSERT INTO status (name, color, updated_at) VALUES ('AGUARDANDO', '#BBBBBB', 'now');
-INSERT INTO status (name, color, updated_at) VALUES ('FINALIZADO', '#26E600', 'now');
+INSERT INTO clients (name, email, password, active, updated_at) VALUES ('admin', 'admin@admin.com', '$2y$10$d/jodesdEdVAmbwgrH.GA.O1FaB47mAwCiI1IGmW.q2xcnc5G1foy', 1, 'now');
 
 INSERT INTO permissions (name,value,active,updated_at) VALUES ('ADMINISTRATOR', 100 , 1, 'now');
 INSERT INTO permissions (name,value,active,updated_at) VALUES ('MANAGER', 50 , 1, 'now');

@@ -3,18 +3,13 @@
 namespace app\controllers;
 
 use app\core\Controller;
-use app\models\user;
-use app\repository\UserRepository;
-
+use app\models\Client;
 class HomeController extends Controller {
-
-    private $user;
 
     function __construct() {
         if (!session()->data(CONF_SESSION_LOGIN)) {
             redirect('login');
         }
-        $this->user = new UserRepository();
     }
 
     public function index() {
@@ -25,17 +20,17 @@ class HomeController extends Controller {
 
     public function changepassword() {
         $input = is_postback();
+        
         if ($input) {
+            $client = new Client;
             if ($input['password'] == $input['repassword']) {
-                $data = $this->user->find(session()->data(CONF_SESSION_LOGIN)->id);
-                $user = new User(
-                    $data->name,
-                    $data->email,
-                    $input['password'],
-                    $data->active,
-                );
+                $data = $client->find(session()->data(CONF_SESSION_LOGIN)->id);
+                $client->name = $data->name;
+                $client->email = $data->email;
+                $client->password = $input['password'];
+                $client->active = $data->active;
                 
-                if ($this->user->create($user, $data->id)) {
+                if ($client->save(session()->data(CONF_SESSION_LOGIN)->id)) {
                     $this->message()->success("Your password updated!")->flash();
                 } else {
                     $this->message()->danger("Couldn't change password!")->flash();

@@ -3,8 +3,8 @@
 /*
  * PROPRIETS SYSTEM
  */
-define('CONF_NAME_SYSTEM', 'Rain');
-define('CONF_VERSION_CURRENT', '1.0.0 BETA');
+define('CONF_NAME_SYSTEM', 'Lendários TeaM');
+define('CONF_VERSION_CURRENT', '0.0.1 BETA');
 define('CONF_ACCOUNT_ADMINISTRATOR', 'admin');
 define('CONF_VALUE_PERMISSION_MASTER', 100);
 define('CONF_DEFAULT_PERMISSION', 3);
@@ -13,8 +13,8 @@ define('CONF_DEFAULT_PERMISSION', 3);
  * URL
  * Info: add slash the final URL in (CONF_URL_SITE, CONF_URL_BASE)
  */
-define('CONF_URL_SITE', "127.0.0.1:8080/");
-define('CONF_URL_BASE', "http://localhost:8080/");
+define('CONF_URL_SITE', "127.0.0.1");
+define('CONF_URL_BASE', "http://127.0.0.1/");
 define('CONF_URL_URI', substr($_SERVER['REQUEST_URI'], 1));
 define('CONF_URL_INDEX', 'panel/index');
 
@@ -24,6 +24,8 @@ define('CONF_URL_INDEX', 'panel/index');
 define('CONF_SESSION_MENU', 'menu_pages');
 define('CONF_SESSION_LOGIN', 'logged_user');
 define('CONF_SESSION_DESCONNECT', 'desconnect');
+define('CONF_SESSION_CART', 'mycart');
+define('CONF_SESSION_SHOP_TOKEN', 'shop_token');
 
 /*
  * PROJECT
@@ -67,6 +69,7 @@ define('CONF_MESSAGE_DANGER', 'danger');
 define('CONF_MESSAGE_WARNING', 'warning');
 define('CONF_RETURN_AJAX_SUCCESS', 'SUCCESS;');
 define('CONF_RETURN_AJAX_FAIL', 'FAIL;');
+define('CONF_MESSAGE_FILE', 'messages');
 
 /*
  * LOGOS
@@ -108,13 +111,71 @@ define('CONF_MAILING_TEMP_RECUPERAR', __DIR__ . '/../public/mailing/recoveraccou
  *  DATA BASE
  */
 define('CONF_DB_DRIVER', 'pgsql');
-define('CONF_DB_HOST', '127.0.0.1');
+define('CONF_DB_HOST', '159.203.176.221');
 define('CONF_DB_PORT', '5432');
 define('CONF_DB_BASE', 'rain');
-define('CONF_DB_USER', 'user');
-define('CONF_DB_PASSWD', 'password');
+define('CONF_DB_USER', 'lendarios');
+define('CONF_DB_PASSWD', 'Hunt3r@195');
 define('CONF_DB_OPTIONS', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
     PDO::ATTR_CASE => PDO::CASE_NATURAL
 ]);
+
+/*
+ * STORE
+ */
+define('CONF_STORE_STATUS_DEFAULT', 'PENDENTE');
+
+define('CONF_ORDER_STATUS_DEFAULT', 3);
+define('CONF_STATUS_CANCELED', 2);
+define('CONF_STATUS_PENDING', 3);
+define('CONF_STATUS_TEST', 4);
+define('CONF_STATUS_OVERDUE', 5);
+define('CONF_STATUS_FINISH', 6);
+define('CONF_STATUS_PAYED', 7);
+
+/*
+ * MERCADO PAGO INTEGRATION
+ */
+define('CONF_MP_KEY', "APP_USR-8941155461397012-070502-251f8703a1b441b711ebbbcae6ed9d7c-389796431");
+define('CONF_MP_CODE', '070502-0eecdf0d43ab8fdc133db02da0a27828');
+define('CONF_MP_URL', "https://api.mercadopago.com/v1/payments");
+
+define('CONF_MP_URL_NOTIFICATION', "https://www.lendariosteam.com.br/teste");
+define('CONF_MP_URL_NOTIFICATION11', CONF_URL_BASE . "/event.php?code=" . CONF_MP_CODE);
+define('CONF_MP_SESSION_RESPONSE', "MP_SESSION_RESPONSE_PIX");
+
+/*
+ * PAYPAL INTEGRATION
+ */
+define('CONF_PAYPAL_MODE', "sandbox");
+
+define('CONF_PAYPAL_URL', "https://api.paypal.com");
+define('CONF_PAYPAL_CLIENTID', '070502-0eecdf0d43ab8fdc133db02da0a27828');
+define('CONF_PAYPAL_SECRETKEY', "https://api.mercadopago.com/v1/payments");
+
+define('CONF_PAYPAL_SANDBOX_URL', "https://api-m.sandbox.paypal.com");
+define('CONF_PAYPAL_SANDBOX_CLIENTID', "AdXMSnqrHWV1XZgpIViu4LuLQbJLsJqZXPmjo2hNUSoLFN6_BuTL7C-zyxo__Khp2Eao2AxnQCzuw2BR");
+define('CONF_PAYPAL_SANDBOX_SECRETKEY', "EOOTofancYut6C5iWvo03EZqMPlB5wbzJ2N_ypT6YHutf7aIs_z4ZOpC3eZj5Fv11So8e_yO1fLueZYC");
+
+/*
+ * ADDRESS COMPANY
+ */
+define('CONF_ADDRESS_ZIPCODE', "78070720");
+define('CONF_ADDRESS_STREETNAME', 'AVENIDA MANOEL JOSE DE ARRUDA');
+define('CONF_ADDRESS_STREETNUMBER', '3177');
+define('CONF_ADDRESS_NEIGHBORHOOD', 'BELA MARINA');
+define('CONF_ADDRESS_CITY', 'CUIABA');
+define('CONF_ADDRESS_UF', 'MT');
+
+/*
+ * DOCUMENT COMPANY
+ */
+define('CONF_DOC_TYPE', "CPF");
+define('CONF_DOC_NUMBER', '19119119100');
+
+/*
+ * API 
+*/
+define('CONF_API_TOKEN', "SESSION_TOKEN_API_REST");

@@ -16,6 +16,29 @@ function logger($name = null, $active = true): app\shared\Logger {
     return new app\shared\Logger(($name ? $name . "_" . date('Ymd') : 'logger_' . date('Ymd')), $active, __DIR__ . '/../storage/logs/');
 }
 
+function api(array $data){
+    header('Access-Control-Allow-Origin: *');
+    header('Accept: application/json');
+    header('Content-Type: application/json');
+    echo json_encode($data, true);
+    exit(0);
+}
+
+function getToken($info = null){
+    $token = null;
+    if($info){
+        $token = $info . "_";
+    }
+    return md5($token . time() . rand(999, 9999999));
+}
+
+function config(string $conf){
+    if(strpos('.php', $conf) !== false){
+        return include $conf;
+    }
+    return include $conf . '.php';
+}
+
 // *****************************************************************************
 // *                                DATE                                       *
 // *****************************************************************************
@@ -170,6 +193,10 @@ function str_scape_html($string) {
     return html_entity_decode($string, ENT_QUOTES, "UTF-8");
 }
 
+function str_name_file($file){
+    return strtolower(str_replace('.php','',$file));
+}
+
 // *****************************************************************************
 // *                              HTTP REQUEST                                 *
 // *****************************************************************************
@@ -232,6 +259,12 @@ function leveludiff($a, $b) {
 
 function nameudiff($a, $b) {
     return $a['name'] - $b['name'];
+}
+
+function print_html($data){
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
 }
 
 // *****************************************************************************

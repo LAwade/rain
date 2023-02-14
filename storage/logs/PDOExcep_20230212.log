@@ -1,0 +1,40 @@
+________________________________________________________________________________________
+
+[ 12/02/2023 00:47:02 ][ LINE 65 ][ app\core\Model::read ][ ARGS (SELECT * FROM invoices WHERE id_client = 2) ][ ERROR ]
+
+> PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "id_client" does not exist
+LINE 1: SELECT * FROM invoices WHERE id_client = 2
+                                     ^
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 12/02/2023 00:47:46 ][ LINE 65 ][ app\core\Model::read ][ ARGS (SELECT * FROM invoices WHERE id_client = :id,Array) ][ ERROR ]
+
+> PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "id_client" does not exist
+LINE 1: SELECT * FROM invoices WHERE id_client = $1
+                                     ^
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 12/02/2023 00:55:36 ][ LINE 65 ][ app\core\Model::read ][ ARGS (SELECT * FROM invoices WHERE id_client = :id,Array) ][ ERROR ]
+
+> PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "id_client" does not exist
+LINE 1: SELECT * FROM invoices WHERE id_client = $1
+                                     ^
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
+________________________________________________________________________________________
+
+[ 12/02/2023 23:45:43 ][ LINE 65 ][ app\core\Model::read ][ ARGS (SELECT * FROM invoices WHERE id_client = :id,Array) ][ ERROR ]
+
+> PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "id_client" does not exist
+LINE 1: SELECT * FROM invoices WHERE id_client = $1
+                                     ^
+
+ ---------------------------------- [ FINISH LOGGER ] ----------------------------------
+
