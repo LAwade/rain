@@ -111,11 +111,11 @@ define('CONF_MAILING_TEMP_RECUPERAR', __DIR__ . '/../public/mailing/recoveraccou
  *  DATA BASE
  */
 define('CONF_DB_DRIVER', 'pgsql');
-define('CONF_DB_HOST', '159.203.176.221');
+define('CONF_DB_HOST', '127.0.0.1');
 define('CONF_DB_PORT', '5432');
 define('CONF_DB_BASE', 'rain');
-define('CONF_DB_USER', 'lendarios');
-define('CONF_DB_PASSWD', 'Hunt3r@195');
+define('CONF_DB_USER', 'rain');
+define('CONF_DB_PASSWD', 'rain');
 define('CONF_DB_OPTIONS', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
