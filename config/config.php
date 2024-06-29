@@ -25,7 +25,7 @@ define('CONF_SESSION_DESCONNECT', 'desconnect');
 /*
  * PROJECT
  */
-define('CONF_PROJECT_PATH_NAME', "softexpert");
+define('CONF_PROJECT_PATH_NAME', "shopexpert");
 define('CONF_LOCAL_PROJECT', '/var/www/html/' . CONF_PROJECT_PATH_NAME);
 define('CONF_NAMESPACE_DEFAULT', 'app\\controllers\\');
 define('CONF_NAME_CONTROLLER_DEFAULT', 'Controller');
@@ -107,9 +107,9 @@ define('CONF_MAILING_TEMP_RECUPERAR', __DIR__ . '/../public/mailing/recoveraccou
 define('CONF_DB_DRIVER', 'pgsql');
 define('CONF_DB_HOST', '127.0.0.1');
 define('CONF_DB_PORT', '5432');
-define('CONF_DB_BASE', 'softexpert');
-define('CONF_DB_USER', 'softexpert');
-define('CONF_DB_PASSWD', 'softexpert');
+define('CONF_DB_BASE', 'shopexpert');
+define('CONF_DB_USER', 'shopexpert');
+define('CONF_DB_PASSWD', 'shopexpert');
 define('CONF_DB_OPTIONS', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
